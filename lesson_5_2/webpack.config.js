@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entery: {
+  entry: {
     profile: './src/profile/index.js',
     dashboard: './src/dashboard/index.js',
   },

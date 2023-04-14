@@ -6,7 +6,7 @@ module.exports = {
     dashboard: './src/dashboard/index.js',
   },
   output: {
-    filename: '[path].js',
+    filename: '[name].js',
     path: path.join(__dirname, 'build'),
   },
 };

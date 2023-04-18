@@ -3,12 +3,12 @@ module.exports = {
   output: {
     filename: 'bundle.js',
   },
+  module: {
+    rules: [
+      {
+        test: /.js$/,
+        use: ['babel-loader'],
+      },
+    ],
+  },
 };
-module: {
-  rules: [
-    {
-      test: /.js$/,
-      use: ['babel-loader'],
-    },
-  ];
-}

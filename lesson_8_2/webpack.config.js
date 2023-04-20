@@ -13,6 +13,10 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          test: /.js$/,
+          use: ['babel-loader'],
+        },
+        {
           test: /.s?css$/,
           use: [
             isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
@@ -21,21 +25,17 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /.(jpg|png)$/,
+          test: /.(jpg|pmg)$/,
           use: [
             {
               loader: 'url-loader',
               options: {
-                limit: 8192,
+                limit: 8,
                 name: '[name].[ext]',
                 outputPath: 'images',
               },
             },
           ],
-        },
-        {
-          test: /.js$/,
-          use: ['babel-loader'],
         },
       ],
     },
@@ -46,7 +46,12 @@ module.exports = (env, argv) => {
         template: './src/index.html',
       }),
     ],
+    devServer: {
+      port: 9000,
+      hot: true,
+    },
   };
+
   if (isProduction) {
     config.plugins.push(
       new MiniCssExtractPlugin({
@@ -54,5 +59,6 @@ module.exports = (env, argv) => {
       })
     );
   }
+
   return config;
 };
